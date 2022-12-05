@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#"
+     xml:base="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:smoke-detection="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasContext -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasContext"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasLocation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasObservation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasObservation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Building"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#observationResult -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#observationResult">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#observedProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#observedProperty">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasValue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#AbnormalTemperatureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#AbnormalTemperatureEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#TemperatureEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Building -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Building"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Elevator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Elevator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#ElevatorAbnormalTemperatureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#ElevatorAbnormalTemperatureEvent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Elevator"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#observationResult"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result40"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#AbnormalTemperatureEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Event -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Event">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Fire -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Fire">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasObservation"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#AbnormalTemperatureEvent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Location"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Property -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Property"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result20 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result20">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasValue"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.0</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result40 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result40">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasValue"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">40.0</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#ServerRoom -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#ServerRoom">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#ServerRoomTemperatureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#ServerRoomTemperatureEvent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#ServerRoom"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#observationResult"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result20"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#AbnormalTemperatureEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Smoke -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Smoke">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#SmokeDetectionEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#SmokeDetectionEvent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#observedProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Smoke"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Temperature -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Temperature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#TemperatureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#TemperatureEvent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#observedProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Temperature"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#b -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#b">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Building"/>
+        <hasObservation rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o1"/>
+        <hasObservation rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o2"/>
+        <hasObservation rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#elevator -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#elevator">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Elevator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+        <hasLocation rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#server_room"/>
+        <observationResult rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r1"/>
+        <observedProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#temp"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+        <hasLocation rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#elevator"/>
+        <observationResult rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r2"/>
+        <observedProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#temp"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Observation"/>
+        <hasLocation rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#elevator"/>
+        <observationResult rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r3"/>
+        <observedProperty rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#temp"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">35.0</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">41</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#r3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Result"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">65</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#server_room -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#server_room">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#ServerRoom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#temp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#temp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#Temperature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o2"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o3"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/rach3/ontologies/2022/5/smoke-detection#o3"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
